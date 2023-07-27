@@ -24,7 +24,9 @@ export default function RootLayout({
         <ModalProvider/>
         <ToasterProvider/>
         <Navbar/>
+        
         {children}
+        
         <Footer/>
       </body>
       

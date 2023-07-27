@@ -1,3 +1,4 @@
+
 import getCategory from "@/actions/get-category";
 import getColors from "@/actions/get-colors";
 import getProducts from "@/actions/get-products";
@@ -8,6 +9,8 @@ import Filter from "./components/filter";
 import NoResults from "@/components/ui/no-result";
 import ProductCard from "@/components/ui/product-card";
 import MobileFilters from "./components/mobile-filter";
+import { Suspense, useEffect, useState } from "react";
+import Loading from "./loading";
 
 
 export const revalidate = 0
@@ -23,6 +26,13 @@ interface CategoryProps{
 }
 
 const CategoryPage:React.FC<CategoryProps> = async ({params,searchParams})=>{
+    // const [loading, setLoading] = useState(true)
+    // useEffect(() => {
+    //   setTimeout(()=>{
+    //     setLoading(false)
+    //   },40000)
+    // }, [])
+    
     const products = await getProducts({
         categoryid:params.categoryid,
         sizeid:searchParams.sizeid,
@@ -35,9 +45,11 @@ const CategoryPage:React.FC<CategoryProps> = async ({params,searchParams})=>{
     return(
         <div className="bg-white">
             <Container>
+                <Suspense fallback={<Loading/>}>
                 <Billboard 
                     data={category.billboard}
                 />
+                </Suspense>
                 <div className="px-4 sm:px-6 lg:px-8 pb-24">
                     <div className="lg:grid lg:grid-cols-5 lg:gap-x-8">
                         <MobileFilters sizes={sizes} colors={colors}/>
