@@ -7,7 +7,7 @@ interface CurrencyProps{
 }
 const formatter = new Intl.NumberFormat("en-US",{
     style:"currency",
-    currency:"INR"
+    currency:"USD"
   });
 
  const Currency:React.FC<CurrencyProps> = ({value})=>{
