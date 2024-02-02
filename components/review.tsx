@@ -34,10 +34,7 @@ interface ReviewProps {
     productid:string
     
 }
-export interface Artwork {
-    artist: string
-    art: string
-  }
+
 const Review: React.FC<ReviewProps> = ({ productid,reviews }) => {
     const formSchema = z.object({
         name:z.string().min(1),
@@ -118,7 +115,7 @@ const Review: React.FC<ReviewProps> = ({ productid,reviews }) => {
                     {reviews?reviews.map((review) => (
                         <Card className="mb-2">
                             <CardContent>
-                    <figure key={review.name} className="shrink-0 m-3">
+                    <figure key={review.name || 0} className="shrink-0 m-3">
                         <div className="rounded-md">
                         {review.description}
                         </div>
