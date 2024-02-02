@@ -73,8 +73,8 @@ const Review: React.FC<ReviewProps> = ({ productid,reviews }) => {
                 </CardHeader>
                 </div>
                 <CardContent>
-                <ResizablePanelGroup direction="horizontal" className="min-h-[200px]  rounded-lg ">
-                    <ResizablePanel defaultSize={40}>
+                <ResizablePanelGroup direction="horizontal" className="min-h-[200px] sm:min-h-[100px] rounded-lg ">
+                    <ResizablePanel defaultSize={40} >
                     
                     <form onSubmit={form.handleSubmit(onSubmit)}>
                     
@@ -115,7 +115,7 @@ const Review: React.FC<ReviewProps> = ({ productid,reviews }) => {
                     {reviews?reviews.map((review) => (
                         <Card className="mb-2">
                             <CardContent>
-                    <figure key={review.name || 0} className="shrink-0 m-3">
+                    <div key={review.name || 0} className="shrink-0 m-3">
                         <div className="rounded-md">
                         {review.description}
                         </div>
@@ -125,7 +125,7 @@ const Review: React.FC<ReviewProps> = ({ productid,reviews }) => {
                             {review.name}
                         </span>
                         </figcaption>
-                        </figure>
+                        </div>
                         </CardContent>
                         </Card>
                         )):<div className="font-semibold">
