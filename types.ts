@@ -18,8 +18,14 @@ export interface Product{
     size: Size;
     color: Color;
     images: Image[];
+    reviewS: Reviews[];
 }
-
+export interface Reviews{
+    id:string,
+    name:string,
+    description:string,
+    productid:string,
+}
 export interface Image{
     id: string;
     url: string;

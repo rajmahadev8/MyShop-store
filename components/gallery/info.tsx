@@ -2,20 +2,26 @@
 import { Product } from "@/types"
 import Currency from "../ui/currency";
 import Button from "../ui/button";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart,SplitSquareHorizontal } from "lucide-react";
 import { MouseEventHandler } from "react";
 import useCart from "@/hooks/use-cart";
 import { toast } from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 interface InfoProps {
     data:Product;
 }
 
 const Info: React.FC<InfoProps> = ({data}) => {
+    const router = useRouter();
     const cart = useCart();
     const onAddToCart:MouseEventHandler<HTMLButtonElement> = (event)=>{
         event.stopPropagation();
         cart.addItem(data)
+    }
+    const onClick3dView:MouseEventHandler<HTMLButtonElement> = (event)=>{
+        router.push(`/shoesView`);
+
     }
   return(
     <div>
@@ -43,11 +49,19 @@ const Info: React.FC<InfoProps> = ({data}) => {
             </div>
         </div>
         <div className="mt-10 flex items-center gap-x-3">
+            <Button className="flex items-center gap-x-2 border-none" onClick={onClick3dView}>
+                    3d view 
+                    <SplitSquareHorizontal/>
+            </Button>
+        </div>
+        <div className="mt-3 flex items-center gap-x-3">
             <Button className="flex items-center gap-x-2" onClick={onAddToCart}>
                 Add to cart
                 <ShoppingCart/> 
             </Button>
+            
         </div>
+           
     </div>
   )
 }
