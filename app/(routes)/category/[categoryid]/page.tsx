@@ -44,7 +44,7 @@ const CategoryPage:React.FC<CategoryProps> = async ({params,searchParams})=>{
 
     return(
         <div className="bg-white">
-            <Container>
+            <Container className="">
                 <Suspense fallback={<Loading/>}>
                 <Billboard 
                     data={category.billboard}
