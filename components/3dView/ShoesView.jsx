@@ -10,7 +10,7 @@ const state = proxy({
   items: { laces: "#fff", mesh: "#fff", caps: "#fff", inner: "#fff", sole: "#fff", stripes: "#fff", band: "#fff", patch: "#fff" },
 })
 
-export default function App() {
+export default function ShoesView() {
   return (
     <>
       <Canvas shadows camera={{ position: [0, 0, 4], fov: 45 }}>
@@ -29,7 +29,7 @@ export default function App() {
 function Shoe() {
   const ref = useRef()
   const snap = useSnapshot(state)
-  const { nodes, materials } = useGLTF("./shoe-draco.glb")
+  const { nodes, materials } = useGLTF("../shoe-draco.glb")
   const [hovered, set] = useState(null)
 
   useFrame((state) => {
