@@ -48,12 +48,12 @@ const Info: React.FC<InfoProps> = ({data}) => {
                     />
             </div>
         </div>
-        <div className="mt-10 flex items-center gap-x-3">
+        {/* <div className="mt-10 flex items-center gap-x-3">
             <Button className="flex items-center gap-x-2 border-none" onClick={onClick3dView}>
                     3d view 
                     <SplitSquareHorizontal/>
             </Button>
-        </div>
+        </div> */}
         <div className="mt-3 flex items-center gap-x-3">
             <Button className="flex items-center gap-x-2" onClick={onAddToCart}>
                 Add to cart
